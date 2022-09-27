@@ -91,10 +91,19 @@ module.exports = {
             width: "0px",
           },
           "100%": {
-            width: "100%",
+            width: "250px",
           },
         },
+        discover2: {
+          "0%": {
+            width: "0px",
+          },
+          "100%": {
+            width: "250px",
+          },
+        }
       },
+
       animation: {
         "translate-1": "translate1 10s linear infinite",
         "translate-2": "translate2 13s ease-in-out infinite",
@@ -105,6 +114,7 @@ module.exports = {
         "star-3": "star3 4s ease-out infinite",
         "night-sky": "nightSky 2s ease-out",
         "discover-1": "discover1 1s ease-out forwards",
+        "discover-2": "discover2 1.8s ease-out forwards"
       },
     },
   },
