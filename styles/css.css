@@ -1,0 +1,380 @@
+body {
+  /* font-family: 'SF Pro Display'; */
+  /*overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.container {
+  width: 1920px;
+}
+
+.header {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.halomeLogoBlue {
+  width: 169px;
+  height: 48.85px;
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  width: 147px;
+  height: 80px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.languageP {
+  width: 93px;
+  height: 16px;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.main {
+  position: absolute;
+  width: 1283px;
+  height: 671px;
+  left: calc(50% - 1283px / 2 - 0.5px);
+  top: 140px;
+  background: #deeafe;
+  border-radius: 20px;
+}
+
+.getHalomeP {
+  position: absolute;
+  width: 434px;
+  height: 40px;
+  left: calc(50% - 434px / 2 - 7px);
+  padding-top: 83px;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 117%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #1767fd;
+}
+
+.halomeConnect {
+  position: absolute;
+  width: 500px;
+  height: 72px;
+  left: 85px;
+  top: 183px;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 135%;
+  /* or 24px */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.illustration {
+  position: absolute;
+  width: 418.86px;
+  height: 296px;
+  left: 752px;
+  top: 183px;
+}
+
+.downloadWindowButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 0px 20px;
+  gap: 20px;
+
+  position: absolute;
+  width: 410px;
+  height: 71px;
+  left: 130px;
+  top: 303px;
+
+  /* Primary/Primary 500 */
+
+  background: #1767fd;
+  border-radius: 15px;
+}
+
+.downloadWindowP {
+  position: absolute;
+  width: 320px;
+  height: 25px;
+  left: 20px;
+  top: 10px;
+
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.cursorGroup {
+  position: absolute;
+  width: 50px;
+  height: 71px;
+  left: 360px;
+  top: 0px;
+  background: #124ebe;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.cursor {
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  top: 26px;
+  left: 10px;
+  color: #f9fafb;
+}
+
+.version {
+  position: absolute;
+  width: 410px;
+  height: 360px;
+  left: 0px;
+  top: 71px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  align-items: center;
+  text-align: center;
+  z-index: 98;
+  background: #ffffff;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.versionTransition {
+  position: absolute;
+  width: 410px;
+  height: 360px;
+  left: 0px;
+  top: 71px;
+  z-index: 99;
+  background-color: #1767fd;
+  opacity: 30%;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.versionP {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.lastestVersion {
+  position: absolute;
+  width: 224px;
+  height: 18px;
+  left: 226px;
+  top: 380px;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.downloadMobileP {
+  position: absolute;
+  width: 240px;
+  height: 24px;
+  left: 214px;
+  top: 446px;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 135%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.getOnGooglePlay {
+  position: absolute;
+  width: 184px;
+  height: 54px;
+  left: 140px;
+  top: 485px;
+  background-image: url("../public/img/Google_Play.png");
+  background-size: cover;
+}
+
+.downloadOnAppStore {
+  position: absolute;
+  width: 184px;
+  height: 54px;
+  left: 346px;
+  top: 485px;
+  background-image: url("../public/img/App_Store.png");
+  background-size: cover;
+}
+
+.imageGroup {
+  position: absolute;
+  width: 750px;
+  height: 170px;
+  left: 1157px;
+  top: 761px;
+  background-image: url("../public/img/GroupImage.png");
+  background-size: cover;
+}
+
+.footer {
+  position: absolute;
+  width: 1920px;
+  height: 456px;
+  left: 0px;
+  top: 931px;
+  background: #012765;
+}
+
+.footerFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 143px;
+
+  position: absolute;
+  width: 1261px;
+  height: 254.79px;
+  left: 320px;
+  top: 85.64px;
+
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.buttonFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  width: 193px;
+  height: 254.79px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 26px;
+  width: 190px;
+  height: 31px;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 31px;
+  width: 358px;
+  height: 249px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.discover {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 96px;
+  height: 252px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.helpCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 185px;
+  height: 252px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.titleFooter {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1767fd;
+}
+
+.coppyRight {
+  position: absolute;
+  left: 815px;
+  bottom: 23px;
+
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* White */
+
+  color: #ffffff;
+}
+
+#banner {
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  z-index: -1;
+}

@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
+
+// next.config.js
+const withVideos = require("next-videos");
+
+module.exports = withVideos();
