@@ -19,7 +19,6 @@ function LandingPageContent() {
     }, [setTheme]);
 
     const [mouseEnter, setMouseEnter] = useState(false);
-    const [divDiscover, setDivDiscover] = useState(false);
 
     return (
         <>
