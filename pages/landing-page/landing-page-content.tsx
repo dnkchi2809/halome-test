@@ -6,10 +6,9 @@ import Arrow2 from "../../public/img/Arrow 2.svg";
 import Arrow1 from "../../public/img/Arrow 1.svg";
 import RectangleLeft from "../../public/img/Rectangle_Left.svg";
 import ArrowRight from "../../public/img/arrow-right.svg";
-import Union from "../../public/img/Union.png"
+import Union from "../../public/img/Union.png";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-
 
 function LandingPageContent() {
     const { setTheme } = useTheme();
@@ -46,8 +45,9 @@ function LandingPageContent() {
                             </div>
                         </div>
 
-                        <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-50 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-1" />
+                        <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-50 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-1"/>
                         <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-200 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-2" />
+                    
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@ function LandingPageContent() {
                 <Image src={Union} alt="Union" width="322px" height="512px" priority />
             </div>
 
-            <div className="absolute bottom-0 w-screen h-[552px] flex justify-center">
+            <div className="absolute bottom-0 w-screen h-[522px] flex justify-center">
                 <video src={require('../../public/vid/banner-video.mp4')} muted autoPlay={true} preload="auto" width="322px" loop id="banner" />
             </div>
         </>
