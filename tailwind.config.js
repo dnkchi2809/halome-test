@@ -101,6 +101,14 @@ module.exports = {
           "100%": {
             width: "250px",
           },
+        },
+        scaleImage :{
+          "0%": {
+            transform : "scale(1) translateY(0)"
+          },
+          "100%": {
+            transform : "scale(9) translateY(40px)"
+          },
         }
       },
 
@@ -114,7 +122,8 @@ module.exports = {
         "star-3": "star3 4s ease-out infinite",
         "night-sky": "nightSky 2s ease-out",
         "discover-1": "discover1 1s ease-out forwards",
-        "discover-2": "discover2 1.8s ease-out forwards"
+        "discover-2": "discover2 1.8s ease-out forwards",
+        "scale-image": "scaleImage 2s ease-out forwards",
       },
     },
   },

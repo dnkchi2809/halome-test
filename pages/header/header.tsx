@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { openMenuRecoil } from "../../recoil/open-menu";
@@ -16,7 +17,7 @@ function Header() {
     <>
       <div className="w-screen h-20 flex flex-row items-center justify-between px-80 absolute top-0 left-0 shadow-md  dark:shadow-none dark:bg-landing-page z-30">
         <div className="col-1/3 w-full">
-          <div className="w-[169px] h-[48.85px] bg-cover bg-halome-light dark:bg-halome-dark" />
+          <Link href="/landing-page"><div className="w-[169px] h-[48.85px] bg-cover bg-halome-light dark:bg-halome-dark" /></Link>
         </div>
         <div className="col-1/3 w-full flex justify-center">
           <div

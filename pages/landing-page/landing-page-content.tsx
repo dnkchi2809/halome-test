@@ -7,17 +7,42 @@ import Arrow1 from "../../public/img/Arrow 1.svg";
 import RectangleLeft from "../../public/img/Rectangle_Left.svg";
 import ArrowRight from "../../public/img/arrow-right.svg";
 import Union from "../../public/img/Union.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 function LandingPageContent() {
     const { setTheme } = useTheme();
+
+    const router = useRouter();
+
+    const [mouseEnter, setMouseEnter] = useState(false);
+
+    const [scaleImage, setScaleImage] = useState(false);
+
+    const unionDiv = useRef<HTMLDivElement>(null);
+    const videoDiv = useRef<HTMLDivElement>(null);
+
+    const onDiscoverClick = () => {
+        console.log(true);
+
+        setScaleImage(true);
+    }
 
     useEffect(() => {
         setTheme("light");
     }, [setTheme]);
 
-    const [mouseEnter, setMouseEnter] = useState(false);
+    useEffect(() => {
+        if (scaleImage) {
+            unionDiv.current?.classList.add("animate-scale-image");
+            unionDiv.current?.classList.add("z-50");
+            videoDiv.current?.classList.add("animate-scale-image");
+            videoDiv.current?.classList.add("z-40");
+
+            router.push("/landing-page1")
+        }
+    })
 
     return (
         <>
@@ -29,12 +54,12 @@ function LandingPageContent() {
                         Halome không ngừng đổi mới và tạo ra những tính năng<br />
                         độc đáo để người dùng có những trải nghiệm tốt nhất.
                     </p>
-                    <div className="group relative w-[258px] h-[96px] z-50 flex justify-center items-center hover:bg-gradient-to-r from-cyan-300 to-indigo-300 rounded-[25px]" onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)}>
+                    <div className="group relative w-[258px] h-[96px] z-10 flex justify-center items-center hover:bg-gradient-to-r from-cyan-300 to-indigo-300 rounded-[25px]" onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)} onClick={onDiscoverClick}>
                         <div className="relative w-[249px] h-[66px] bg-[#1767FD] bg-gradient-to-r from-blue-800 to-blue-500 rounded-3xl flex flex-row justify-center items-center">
-                            <div className="text-white group-hover:text-[#1767FD] w-[143px] h-[27px] font-semibold text-xl z-50">
+                            <div className="text-white group-hover:text-[#1767FD] w-[143px] h-[27px] font-semibold text-xl z-10">
                                 <p>Khám phá ngay</p>
                             </div>
-                            <div className="w-[34px] h-[27px] flex items-center ml-1 z-50">
+                            <div className="w-[34px] h-[27px] flex items-center ml-1 z-10">
                                 {
                                     mouseEnter
                                         ?
@@ -45,13 +70,13 @@ function LandingPageContent() {
                             </div>
                         </div>
 
-                        <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-50 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-1"/>
+                        <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-50 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-1" />
                         <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-200 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-2" />
-                    
+
                     </div>
                 </div>
 
-                <div className="absolute left-[-7%] top-[-15%] h-screen flex items-center z-20 -rotate-90">
+                <div className="absolute left-[-7%] top-[-15%] h-screen flex items-center -rotate-90">
                     <div className="flex p-0 gap-[60px] font-semibold text-base ">
                         <div className="col-1/3 text-[#7F7F83]">
                             <Link href="#">Tính năng</Link>
@@ -103,11 +128,11 @@ function LandingPageContent() {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 w-screen h-[552px] flex justify-center">
-                <Image src={Union} alt="Union" width="322px" height="512px" priority />
+            <div ref={unionDiv} className="absolute bottom-0 w-screen h-[552px] flex justify-center">
+                <Image src={Union} alt="Union" priority />
             </div>
 
-            <div className="absolute bottom-0 w-screen h-[522px] flex justify-center">
+            <div ref={videoDiv} className="absolute bottom-0 w-screen h-[522px] flex justify-center">
                 <video src={require('../../public/vid/banner-video.mp4')} muted autoPlay={true} preload="auto" width="322px" loop id="banner" />
             </div>
         </>
