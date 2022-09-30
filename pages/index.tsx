@@ -1,8 +1,15 @@
 import type { NextPage } from "next";
+import { useTheme } from "next-themes";
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
   return (
     <div>
       <Head>

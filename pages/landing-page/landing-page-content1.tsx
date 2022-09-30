@@ -13,11 +13,27 @@ import Eclipse from "../../public/img/Eclipse.png";
 import EclipseMain from "../../public/img/Eclipse_Main.png";
 import FallingStar from "../../public/img/FallingStar.png";
 import Link from "next/link";
+import HeaderDark from "../header/header-dark";
+import { useSetRecoilState } from "recoil";
+import { pageRecoil } from "../../recoil/page";
 
-function LandingPageContent() {
+function LandingPageContent1() {
+  const setPage = useSetRecoilState(pageRecoil)
+  
+  const onWindowWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    const y = event.deltaY;
+    if (y > 0) {
+      setPage(2);
+    } else {
+      setPage(1);
+    }
+  };
   return (
     <>
-      <div className="bg-landing-page h-screen">
+      <div className="relative top-0 bg-landing-page h-screen w-screen overflow-hidden z-[850]" onWheel={onWindowWheel}>
+        <div className="w-screen absolute top-0 left-0">
+          <HeaderDark />
+        </div>
         <div className="absolute top-[185px] left-[706px]">
           <Image
             src={TextHalomeGlitch}
@@ -47,7 +63,7 @@ function LandingPageContent() {
             <div className="col-1/3 text-[#7F7F83]">
               <Link href="#">Tổng quan</Link>
             </div>
-            <div className="col-1/3">
+            <div className="col-1/3 text-white">
               <Link href="#">Sứ mệnh</Link>
             </div>
           </div>
@@ -99,4 +115,4 @@ function LandingPageContent() {
   );
 }
 
-export default LandingPageContent;
+export default LandingPageContent1;

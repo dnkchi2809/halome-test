@@ -8,14 +8,10 @@ import RectangleLeft from "../../public/img/Rectangle_Left.svg";
 import ArrowRight from "../../public/img/arrow-right.svg";
 import Union from "../../public/img/Union.png";
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
+import { useSetRecoilState } from "recoil";
+import { pageRecoil } from "../../recoil/page";
 
 function LandingPageContent() {
-    const { setTheme } = useTheme();
-
-    const router = useRouter();
-
     const [mouseEnter, setMouseEnter] = useState(false);
 
     const [scaleImage, setScaleImage] = useState(false);
@@ -23,30 +19,33 @@ function LandingPageContent() {
     const unionDiv = useRef<HTMLDivElement>(null);
     const videoDiv = useRef<HTMLDivElement>(null);
 
-    const onDiscoverClick = () => {
-        console.log(true);
+    const setPage = useSetRecoilState(pageRecoil)
 
+    const onDiscoverClick = () => {
         setScaleImage(true);
+        setTimeout(() => setPage(2), 2500);
     }
 
-    useEffect(() => {
-        setTheme("light");
-    }, [setTheme]);
+    const onWindowWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+        const y = event.deltaY;
+        if (y > 0) {
+            setScaleImage(true);
+            setTimeout(() => setPage(2), 2500);
+        }
+    }
 
     useEffect(() => {
         if (scaleImage) {
             unionDiv.current?.classList.add("animate-scale-image");
-            unionDiv.current?.classList.add("z-50");
+            unionDiv.current?.classList.add("z-[1000]");
             videoDiv.current?.classList.add("animate-scale-image");
-            videoDiv.current?.classList.add("z-40");
-
-            router.push("/landing-page1")
+            videoDiv.current?.classList.add("z-[999]");
         }
     })
 
     return (
         <>
-            <div className="absolute h-screen w-screen">
+            <div className="static h-screen w-screen overflow-hidden z-[997]" onWheel={onWindowWheel}>
                 <div className="absolute top-[167px] w-screen h-[277px] flex flex-col justify-start items-center ">
                     <p className="relative text-[#1767FD] text-extrabold text-5xl leading-[80px]">ỨNG DỤNG HÀNG ĐẦU VỀ BẢO MẬT</p>
                     <p className="relative w-[673px] h-[159px] text-2xl leading-8 text-center">
@@ -54,12 +53,12 @@ function LandingPageContent() {
                         Halome không ngừng đổi mới và tạo ra những tính năng<br />
                         độc đáo để người dùng có những trải nghiệm tốt nhất.
                     </p>
-                    <div className="group relative w-[258px] h-[96px] z-10 flex justify-center items-center hover:bg-gradient-to-r from-cyan-300 to-indigo-300 rounded-[25px]" onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)} onClick={onDiscoverClick}>
+                    <div className="group relative w-[258px] h-[96px] z-[997] flex justify-center items-center hover:bg-gradient-to-r from-cyan-300 to-indigo-300 rounded-[25px]" onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)} onClick={onDiscoverClick}>
                         <div className="relative w-[249px] h-[66px] bg-[#1767FD] bg-gradient-to-r from-blue-800 to-blue-500 rounded-3xl flex flex-row justify-center items-center">
-                            <div className="text-white group-hover:text-[#1767FD] w-[143px] h-[27px] font-semibold text-xl z-10">
+                            <div className="text-white group-hover:text-[#1767FD] w-[143px] h-[27px] font-semibold text-xl z-[997]">
                                 <p>Khám phá ngay</p>
                             </div>
-                            <div className="w-[34px] h-[27px] flex items-center ml-1 z-10">
+                            <div className="w-[34px] h-[27px] flex items-center ml-1 z-[997]">
                                 {
                                     mouseEnter
                                         ?
@@ -74,27 +73,6 @@ function LandingPageContent() {
                         <div className="absolute top-[4px] left-[5px] w-0 h-[66px] bg-slate-200 rounded-3xl flex flex-row justify-center items-center group-hover:animate-discover-2" />
 
                     </div>
-                </div>
-
-                <div className="absolute left-[-7%] top-[-15%] h-screen flex items-center -rotate-90">
-                    <div className="flex p-0 gap-[60px] font-semibold text-base ">
-                        <div className="col-1/3 text-[#7F7F83]">
-                            <Link href="#">Tính năng</Link>
-                        </div>
-                        <div className="col-1/3 text-[#7F7F83]">
-                            <Link href="#">Tổng quan</Link>
-                        </div>
-                        <div className="col-1/3 text-[#7F7F83]">
-                            <Link href="/landing-page1">Sứ mệnh</Link>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="w-[35%] fixed bottom-0 left-0">
-                    <Image src={DataLeft} alt="DataLeft" objectFit="contain" priority />
-                </div>
-                <div className="w-[35%] fixed bottom-0 right-0">
-                    <Image src={DataRight} alt="DataRight" objectFit="contain" priority />
                 </div>
 
                 <div className="absolute right-0 top-[218px] w-[246px] h-auto rounded-l-lg shadow-xl">
@@ -126,14 +104,24 @@ function LandingPageContent() {
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ref={unionDiv} className="absolute bottom-0 w-screen h-[552px] flex justify-center">
-                <Image src={Union} alt="Union" priority />
-            </div>
+                <div className="relative bottom-0 w-screen h-screen ">
+                    <div className="absolute left-[-5%] bottom-50 ">
+                        <Image src={DataLeft} alt="DataLeft" objectFit="contain" priority />
+                    </div>
 
-            <div ref={videoDiv} className="absolute bottom-0 w-screen h-[522px] flex justify-center">
-                <video src={require('../../public/vid/banner-video.mp4')} muted autoPlay={true} preload="auto" width="322px" loop id="banner" />
+                    <div className="absolute right-[-5%] bottom-50 ">
+                        <Image src={DataRight} alt="DataRight" objectFit="contain" priority />
+                    </div>
+
+                    <div ref={unionDiv} className="absolute bottom-0 w-screen h-[552px] flex justify-center">
+                        <Image src={Union} alt="Union" priority />
+                    </div>
+
+                    <div ref={videoDiv} className="absolute bottom-0 w-screen h-[522px] flex justify-center">
+                        <video src={require('../../public/vid/banner-video.mp4')} muted autoPlay={true} preload="auto" width="322px" loop id="banner" />
+                    </div>
+                </div>
             </div>
         </>
     )

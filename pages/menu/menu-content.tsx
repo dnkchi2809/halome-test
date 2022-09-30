@@ -14,8 +14,8 @@ function MenuContent() {
 
   return (
     <>
-      <div className="w-full flex flex-row justify-center z-[100]">
-        <div className="bg-[#012765] absolute top-0 w-[1384px] h-[258px] rounded-bl-3xl rounded-br-3xl text-white z-[90]">
+      <div className="relative w-full flex flex-row justify-center z-[2000]">
+        <div className="bg-[#012765] absolute top-0 w-[1384px] h-[258px] rounded-bl-3xl rounded-br-3xl text-white z-[1999]">
           <div className="relative top-[32px] left-[52px] bg-cover bg-halome-dark w-[169px] h-[48.85px]" />
           <div className="absolute top-[34px] left-[371px] w-[172px] h-[43px] bg-gradient-to-r from-purple-500 to-green-500 rounded-3xl">
             <div className="relative top-[1px] left-[1px] w-[170px] h-[41px] rounded-3xl flex items-center justify-center bg-[#012765]">
@@ -62,13 +62,13 @@ function MenuContent() {
             className="absolute bottom-[18px] w-full h-[24px] flex flex-col justify-center items-center"
             onClick={() => setOpenMenu(false)}
           >
-            <div className="w-[15.5px] h-[8.91px] bg-contain bg-repeat-y bg-up-cursor-dark z-20" />
-            <div className="w-[15.5px] h-[8.91px] bg-contain bg-repeat-y bg-up-cursor-dark z-20" />
+            <div className="w-[15.5px] h-[8.91px] bg-contain bg-repeat-y bg-up-cursor-dark z-[1999]" />
+            <div className="w-[15.5px] h-[8.91px] bg-contain bg-repeat-y bg-up-cursor-dark z-[1999]" />
           </div>
 
           {openLanguage ? (
             <>
-              <div className="absolute right-[90px] top-[70px] w-[120px] h-[180px] bg-[#012765] font-light text-base leading-[28.5px] z-20 flex flex-col justify-center pl-4  rounded-xl shadow-xl">
+              <div className="absolute right-[90px] top-[70px] w-[120px] h-[180px] bg-[#012765] font-light text-base leading-[28.5px] z-[999] flex flex-col justify-center pl-4  rounded-xl shadow-xl">
                 {language.map((lang: string, index) => {
                   return (
                     <>
@@ -84,7 +84,7 @@ function MenuContent() {
         </div>
       </div>
 
-      <div className="absolute w-screen h-screen z-[60] animate-night-sky">
+      <div className="absolute w-screen h-screen z-[1998] animate-night-sky">
         <Image
           src={NightSkyBackground}
           alt="NightSkyBackground"
