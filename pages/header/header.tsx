@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <>
-      <div className="w-screen h-20 flex flex-row items-center justify-between px-80 absolute top-0 left-0 shadow-md  dark:shadow-none dark:bg-landing-page z-30">
+      <div className="w-screen h-20 flex flex-row items-center justify-between px-80 absolute top-0 left-0 shadow-md  dark:shadow-none dark:bg-landing-page z-[996]">
         <div className="col-1/3 w-full">
           <Link href="/landing-page"><div className="w-[169px] h-[48.85px] bg-cover bg-halome-light dark:bg-halome-dark" /></Link>
         </div>
@@ -39,7 +39,7 @@ function Header() {
       </div>
       {openLanguage ? (
         <>
-          <div className="absolute right-[310px] top-[80px] w-[120px] h-[150px] bg-[#012765] text-white text-xs z-20 flex flex-col justify-center pl-4 gap-[11px] rounded-xl shadow-xl">
+          <div className="absolute right-[310px] top-[80px] w-[120px] h-[150px] bg-[#012765] text-white text-xs z-[997] flex flex-col justify-center pl-4 gap-[11px] rounded-xl shadow-xl">
             {language.map((lang: string, index) => {
               return (
                 <>

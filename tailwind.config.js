@@ -123,7 +123,7 @@ module.exports = {
         "night-sky": "nightSky 2s ease-out",
         "discover-1": "discover1 1s ease-out forwards",
         "discover-2": "discover2 1.8s ease-out forwards",
-        "scale-image": "scaleImage 2s ease-out forwards",
+        "scale-image": "scaleImage 1.5s ease-out forwards",
       },
     },
   },
